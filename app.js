@@ -19,6 +19,9 @@ app.use(morgan('tiny'));
 app.use(authJwt());
 app.use(errorHandler);
 
+//to use mages as public
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+
 
 //product routers
 const productRoutes = require('./routers/products');

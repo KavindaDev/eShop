@@ -13,10 +13,13 @@ function authJwt() {
         isRevoked: isRevoked //tp check if its an admin or not
     }).unless({
         path: [
+            //regex expressions
+            { url: /\/public\/uploads(.*)/, methods: ['GET', options] },
             { url: /\/api\/v1\/products(.*)/, methods: ['GET', options] },
             { url: /\/api\/v1\/categories(.*)/, methods: ['GET', options] },
             `${api}/users/login`,
             `${api}/users/register`,
+
 
         ]
     })
